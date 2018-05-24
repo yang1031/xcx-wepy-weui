@@ -1,0 +1,152 @@
+<template>
+    <image src='../product-img/index-bg.jpg' class='container-bg'></image>
+    <view class="container">
+        <swiper class="index-swiper"
+                previous-margin="60px"
+                next-margin="60px"
+                bindchange="currentChange">
+            <block wx:for="{{imgUrls}}" key="index">
+                <swiper-item :class="{'active': current==index}">
+                    <navigator class="img-box" url="../buy/detail/detail">
+                        <image src="{{item}}" class="slide-image"></image>
+                        <image src="../product-img/index-bg.jpg" class="cutOff-line"></image>
+                    </navigator>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="btn-box">
+            <button class="btn-try" type="default" @tap="toNav"> 我要试试 </button>
+        </view>
+    </view>
+</template>
+
+<script>
+    import wepy from 'wepy';
+
+    export default class index extends wepy.page {
+
+        data = {
+            imgUrls: [
+                'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'
+            ],
+            current: 0
+        };
+        methods = {
+            onload () {},
+
+            currentChange: function(e) {
+                this.current = e.detail.current;
+            },
+            toNav: function() {
+                wx.navigateTo({
+                    url: '../diy/diy'
+                });
+            },
+            toNavList: function () {
+                wx.navigateTo({
+                    url: '../buy/list'
+                });
+            },
+
+            bindViewTap: function() {
+                wx.navigateTo({
+                    url: '../logs/logs'
+                });
+            },
+        };
+    }
+</script>
+
+<style lang="less">
+    /**index.wxss**/
+    .container-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .userinfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .userinfo-avatar {
+        width: 128rpx;
+        height: 128rpx;
+        margin: 20rpx;
+        border-radius: 50%;
+    }
+    .userinfo-nickname {
+        color: #aaa;
+    }
+    .usermotto {
+        margin-top: 200px;
+    }
+    /* ---------------- */
+    .index-swiper {
+        height: 80%;
+    }
+    .index-swiper swiper-item {
+        text-align: center;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    .index-swiper swiper-item.active .img-box {
+        width: 95%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    .index-swiper swiper-item .img-box{
+        position: relative;
+        width: 90%;
+        height: 90%;
+        margin: 10% auto 0;
+        box-sizing: border-box;
+        transition: all .5s;
+    }
+    .index-swiper .slide-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border-radius:50rpx;
+    }
+    .cutOff-line {
+        position: absolute;
+        top: 37.5%;
+        left: 0;
+        width: 100%;
+        height: 4rpx;
+    }
+    .last-img {
+        position: relative;
+        background: #000;
+        color: #F5F0D0;
+        border-radius:50rpx;
+    }
+    .last-img text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size:28px;
+        width:100rpx;
+
+    }
+    .btn-box {
+        padding: 30px 10px;
+        text-align: center;
+    }
+    .btn-box .btn-try {
+        display: inline-block;
+        padding: 0 100rpx;
+        border-radius: 25px;
+        background: #fcfcfc;
+    }
+
+</style>

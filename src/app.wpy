@@ -1,10 +1,29 @@
 <style lang="less">
 @import './style/weui.less';
 page{
-    background-color: #F8F8F8;
+    height: 100%;
     font-size: 16px;
-    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+    font-family: '黑体',Arial,SimSun,Helvetica,sans-serif;
+    color: #333;
 }
+.container {
+    height: 100%;
+    /* display: flex;  */
+    /* flex-direction: column; */
+    /* align-items: center;  */
+    /* justify-content: space-between;  */
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+.omit {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.fl {float: left;}
+.fr {float: right;}
+.pr {position: relative;}
+.pa {position: absolute;}
 .page__hd {
     padding: 40px;
 }
@@ -44,37 +63,8 @@ export default class extends wepy.app {
 
     config = {
         'pages': [
-            'example/index',
-            'example/button',
-            'example/list',
-            'example/input',
-            'example/slider',
-            'example/uploader',
-
-            'example/article',
-            'example/badge',
-            'example/flex',
-            'example/footer',
-            'example/gallery',
-            'example/grid',
-            'example/icons',
-            'example/loadmore',
-            'example/panel',
-            'example/preview',
-            'example/progress',
-
-            'example/actionsheet',
-            'example/dialog',
-            'example/msg',
-            'example/msg_fail',
-            'example/msg_success',
-            'example/picker',
-            'example/toast',
-
-            'example/navbar',
-            'example/tabbar',
-
-            'example/searchbar'
+            'pages/index',
+            'pages/diy'
         ],
         'window': {
             'navigationBarTextStyle': 'black',

@@ -1,0 +1,14 @@
+<template>
+</template>
+
+<script>
+    import wepy from 'wepy';
+
+    export default class diy extends wepy.page {
+
+        data = {};
+        methods = {
+            onload () {}
+        };
+    }
+</script>
