@@ -5,10 +5,10 @@
                 previous-margin="60px"
                 next-margin="60px"
                 bindchange="currentChange">
-            <block wx:for="{{imgUrls}}" key="index">
+            <block wx:for="{{productList}}" key="index">
                 <swiper-item :class="{'active': current==index}">
                     <navigator class="img-box" url="../buy/detail/detail">
-                        <image src="{{item}}" class="slide-image"></image>
+                        <image src="{{item.imgUrl}}" class="slide-image"></image>
                         <image src="../product-img/index-bg.jpg" class="cutOff-line"></image>
                     </navigator>
                 </swiper-item>
@@ -26,11 +26,20 @@
     export default class index extends wepy.page {
 
         data = {
-            imgUrls: [
-                'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-                'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-                'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-                'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'
+            productList: [
+                {
+                    id: 1,
+                    imgUrl: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
+                }, {
+                    id: 2,
+                    imgUrl: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'
+                }, {
+                    id: 3,
+                    imgUrl: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
+                }, {
+                    id: 4,
+                    imgUrl: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'
+                }
             ],
             current: 0
         };
@@ -60,7 +69,7 @@
     }
 </script>
 
-<style lang="less">
+<style type="less">
     /**index.wxss**/
     .container-bg {
         position: absolute;
