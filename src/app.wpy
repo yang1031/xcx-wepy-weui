@@ -63,13 +63,12 @@ export default class extends wepy.app {
 
     config = {
         'pages': [
-            'pages/index'
+            'pages/index',
+            'pages/detail',
         ],
         'window': {
-            'navigationBarTextStyle': 'black',
-            'navigationBarTitleText': 'WeUI in WePY',
-            'navigationBarBackgroundColor': '#f8f8f8',
-            'backgroundColor': '#f8f8f8'
+            'navigationBarTextStyle': 'white',
+            'navigationBarBackgroundColor': '#333'
         },
         'networkTimeout': {
             'request': 10000,

@@ -1,0 +1,19 @@
+<template>
+    <view>detail</view>
+</template>
+
+<script>
+    import wepy from 'wepy';
+    import { getGoodsDetail } from '../lib/api';
+
+    export default class detail extends wepy.page {
+
+        data = {};
+        onLoad () {};
+        methods = {
+
+        };
+    }
+</script>
+<style type="less">
+</style>

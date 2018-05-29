@@ -7,8 +7,9 @@
     export default class diy extends wepy.page {
 
         data = {};
+        onLoad () {};
         methods = {
-            onload () {}
+
         };
     }
 </script>

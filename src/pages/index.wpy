@@ -5,9 +5,9 @@
                 previous-margin="60px"
                 next-margin="60px"
                 bindchange="currentChange">
-            <block wx:for="{{productList}}" key="index">
+            <block wx:for="{{goodsList}}" key="index">
                 <swiper-item :class="{'active': current==index}">
-                    <navigator class="img-box" url="../buy/detail/detail">
+                    <navigator class="img-box" url="./detail?id={{item.id}}">
                         <image src="{{item.imgUrl}}" class="slide-image"></image>
                         <image src="../product-img/index-bg.jpg" class="cutOff-line"></image>
                     </navigator>
@@ -22,49 +22,27 @@
 
 <script>
     import wepy from 'wepy';
+    import { getGoodsList } from '../lib/api';
 
     export default class index extends wepy.page {
 
         data = {
-            productList: [
-                {
-                    id: 1,
-                    imgUrl: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-                }, {
-                    id: 2,
-                    imgUrl: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'
-                }, {
-                    id: 3,
-                    imgUrl: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
-                }, {
-                    id: 4,
-                    imgUrl: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'
-                }
-            ],
+            goodsList: [],
             current: 0
         };
+        onLoad () {
+            this.goodsList = getGoodsList();
+        };
         methods = {
-            onload () {},
-
             currentChange: function(e) {
+                console.log('1')
                 this.current = e.detail.current;
             },
             toNav: function() {
                 wx.navigateTo({
                     url: '../diy/diy'
                 });
-            },
-            toNavList: function () {
-                wx.navigateTo({
-                    url: '../buy/list'
-                });
-            },
-
-            bindViewTap: function() {
-                wx.navigateTo({
-                    url: '../logs/logs'
-                });
-            },
+            }
         };
     }
 </script>
